@@ -1,0 +1,48 @@
+name: Keycloak compatibility matrix
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * 1'
+
+permissions:
+  contents: read
+
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        keycloak: ['24.0.5', '25.0.6', '26.0.8', '26.6.3']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Start Keycloak ${{ matrix.keycloak }}
+        run: >-
+          docker run --detach --name keycloak --publish 8080:8080
+          --env KC_BOOTSTRAP_ADMIN_USERNAME=admin
+          --env KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+          --env KEYCLOAK_ADMIN=admin
+          --env KEYCLOAK_ADMIN_PASSWORD=admin
+          quay.io/keycloak/keycloak:${{ matrix.keycloak }} start-dev
+      - name: Wait for Keycloak
+        run: |
+          for attempt in {1..60}; do
+            curl --fail --silent http://localhost:8080/realms/master >/dev/null && exit 0
+            sleep 2
+          done
+          docker logs keycloak
+          exit 1
+      - name: Run integration suite
+        env:
+          KEYCLOAK_INTEGRATION_TESTS: 'true'
+        run: dotnet test tests/Keycloak.AdminSdk.IntegrationTests --configuration Release
+      - name: Keycloak logs on failure
+        if: failure()
+        run: docker logs keycloak

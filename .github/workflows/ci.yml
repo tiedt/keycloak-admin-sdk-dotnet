@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 10.0.x
+      - name: Restore
+        run: dotnet restore Keycloak.AdminSdk.sln
+      - name: Verify formatting
+        run: dotnet format Keycloak.AdminSdk.sln --verify-no-changes --no-restore
+      - name: Build and validate public API
+        run: dotnet build Keycloak.AdminSdk.sln --configuration Release --no-restore --no-incremental
+      - name: Test
+        run: dotnet test Keycloak.AdminSdk.sln --configuration Release --no-build --collect:"XPlat Code Coverage"
+      - name: Audit dependencies
+        run: dotnet list Keycloak.AdminSdk.sln package --vulnerable --include-transitive
+      - name: Pack preview
+        run: |
+          dotnet pack src/Keycloak.AdminSdk/Keycloak.AdminSdk.csproj --configuration Release --no-build --output artifacts -p:VersionSuffix=ci.${{ github.run_number }}
+          dotnet pack src/Keycloak.AdminSdk.Diagnostics.Mcp/Keycloak.AdminSdk.Diagnostics.Mcp.csproj --configuration Release --no-build --output artifacts -p:VersionSuffix=ci.${{ github.run_number }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: preview-packages
+          path: artifacts/*.*nupkg

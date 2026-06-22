@@ -1,0 +1,721 @@
+#nullable enable
+const Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.SectionName = "Keycloak:Admin" -> string!
+const Keycloak.AdminSdk.Observability.KeycloakTelemetry.ActivitySourceName = "Keycloak.AdminSdk" -> string!
+const Keycloak.AdminSdk.Observability.KeycloakTelemetry.MeterName = "Keycloak.AdminSdk" -> string!
+Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder
+Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder.ApplyAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Clients.Models.ClientResource!>!
+Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder.KeepClientOnFailure() -> Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder!
+Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder.WithClientRole(Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest! role) -> Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder!
+Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder.WithDefaultScope(Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource! scope) -> Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder!
+Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder.WithOptionalScope(Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource! scope) -> Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.AddDefaultScopeAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.AddOptionalScopeAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.CreateAsync(Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Clients.Models.ClientResource!>!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.Define(Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest! request) -> Keycloak.AdminSdk.Abstractions.Clients.IClientProvisioningBuilder!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.DeleteAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.FindByClientIdAsync(string! clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Clients.Models.ClientResource?>!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Clients.Models.ClientResource!>!>!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.GetAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Clients.Models.ClientResource!>!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.RemoveDefaultScopeAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.RemoveOptionalScopeAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService.UpdateAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Clients.Models.ClientResource!>!
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService.CreateAsync(Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource!>!
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService.DeleteAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService.FindByNameAsync(string! name, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource?>!
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService.GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource!>!>!
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService.GetAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource!>!
+Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService.UpdateAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource!>!
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService.ClearAdminEventsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService.ClearEventsAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService.GetAdminEventsAsync(Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery? query = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource!>!>!
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService.GetConfigurationAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration!>!
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService.GetEventsAsync(Keycloak.AdminSdk.Features.Events.Models.EventQuery? query = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource!>!>!
+Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService.UpdateConfigurationAsync(Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration! configuration, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.AddUserAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.CreateAsync(Keycloak.AdminSdk.Features.Groups.Models.CreateGroupRequest! request, Keycloak.AdminSdk.Common.KeycloakResourceId? parentGroupId = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Groups.Models.GroupResource!>!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.DeleteAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.GetAllAsync(string? search = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Groups.Models.GroupResource!>!>!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.GetAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Groups.Models.GroupResource!>!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.RemoveUserAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService.UpdateAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, Keycloak.AdminSdk.Features.Groups.Models.UpdateGroupRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Groups.Models.GroupResource!>!
+Keycloak.AdminSdk.Abstractions.Http.IKeycloakHttpClient
+Keycloak.AdminSdk.Abstractions.Http.IKeycloakHttpClient.SendAsync(System.Net.Http.HttpRequestMessage! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Net.Http.HttpResponseMessage!>!
+Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService
+Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService.CreateAsync(Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource!>!
+Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService.DeleteAsync(string! providerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService.FindAsync(string! providerAlias, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource?>!
+Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService.GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource!>!>!
+Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService.UpdateAsync(string! providerAlias, Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource!>!
+Keycloak.AdminSdk.Abstractions.IKeycloakAdminClient
+Keycloak.AdminSdk.Abstractions.IKeycloakAdminClient.DefaultRealm.get -> Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext?
+Keycloak.AdminSdk.Abstractions.IKeycloakAdminClient.ForRealm(Keycloak.AdminSdk.Common.RealmName realm) -> Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext!
+Keycloak.AdminSdk.Abstractions.IKeycloakAdminClient.Realms.get -> Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Clients.get -> Keycloak.AdminSdk.Abstractions.Clients.IKeycloakClientService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.ClientScopes.get -> Keycloak.AdminSdk.Abstractions.ClientScopes.IKeycloakClientScopeService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Events.get -> Keycloak.AdminSdk.Abstractions.Events.IKeycloakEventService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Groups.get -> Keycloak.AdminSdk.Abstractions.Groups.IKeycloakGroupService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.IdentityProviders.get -> Keycloak.AdminSdk.Abstractions.IdentityProviders.IKeycloakIdentityProviderService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.ProtocolMappers.get -> Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Realm.get -> Keycloak.AdminSdk.Common.RealmName
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Roles.get -> Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Sessions.get -> Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext.Users.get -> Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService!
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContextFactory
+Keycloak.AdminSdk.Abstractions.IKeycloakRealmContextFactory.Create(Keycloak.AdminSdk.Common.RealmName realm) -> Keycloak.AdminSdk.Abstractions.IKeycloakRealmContext!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.CreateClientMapperAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource!>!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.CreateClientScopeMapperAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource!>!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.DeleteClientMapperAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Common.KeycloakResourceId mapperId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.DeleteClientScopeMapperAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, Keycloak.AdminSdk.Common.KeycloakResourceId mapperId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.GetClientMappersAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource!>!>!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.GetClientScopeMappersAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource!>!>!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.UpdateClientMapperAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Common.KeycloakResourceId mapperId, Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource!>!
+Keycloak.AdminSdk.Abstractions.ProtocolMappers.IKeycloakProtocolMapperService.UpdateClientScopeMapperAsync(Keycloak.AdminSdk.Common.KeycloakResourceId scopeId, Keycloak.AdminSdk.Common.KeycloakResourceId mapperId, Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource!>!
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService.CreateAsync(Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Realms.Models.RealmResource!>!
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService.DeleteAsync(Keycloak.AdminSdk.Common.RealmName realm, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService.FindAsync(Keycloak.AdminSdk.Common.RealmName realm, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Realms.Models.RealmResource?>!
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService.GetAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Realms.Models.RealmResource!>!>!
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService.GetAsync(Keycloak.AdminSdk.Common.RealmName realm, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Realms.Models.RealmResource!>!
+Keycloak.AdminSdk.Abstractions.Realms.IKeycloakRealmService.UpdateAsync(Keycloak.AdminSdk.Common.RealmName realm, Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Realms.Models.RealmResource!>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.AssignClientRolesToGroupAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.AssignClientRolesToUserAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.AssignRealmRolesToGroupAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.AssignRealmRolesToUserAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.CreateClientRoleAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.CreateRealmRoleAsync(Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.DeleteClientRoleAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, string! roleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.DeleteRealmRoleAsync(string! roleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.FindClientRoleAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, string! roleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Roles.Models.RoleResource?>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.FindRealmRoleAsync(string! roleName, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Roles.Models.RoleResource?>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.GetClientRolesAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>!>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.GetRealmRolesAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>!>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.RemoveClientRolesFromGroupAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.RemoveClientRolesFromUserAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.RemoveRealmRolesFromGroupAsync(Keycloak.AdminSdk.Common.KeycloakResourceId groupId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.RemoveRealmRolesFromUserAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>! roles, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.UpdateClientRoleAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, string! roleName, Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>!
+Keycloak.AdminSdk.Abstractions.Roles.IKeycloakRoleService.UpdateRealmRoleAsync(string! roleName, Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Roles.Models.RoleResource!>!
+Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService
+Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService.GetClientSessionsAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, int first = 0, int max = 100, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource!>!>!
+Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService.GetUserSessionsAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource!>!>!
+Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService.LogoutAllAsync(System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService.PushClientRevocationAsync(Keycloak.AdminSdk.Common.KeycloakResourceId clientId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Sessions.IKeycloakSessionService.RevokeAsync(string! sessionId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.CreateAsync(Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Users.Models.UserResource!>!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.DeleteAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.FindByUsernameAsync(string! username, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Users.Models.UserResource?>!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.GetAllAsync(Keycloak.AdminSdk.Features.Users.Models.UserQuery? query = null, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Features.Users.Models.UserResource!>!>!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.GetAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Users.Models.UserResource!>!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.ResetPasswordAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task!
+Keycloak.AdminSdk.Abstractions.Users.IKeycloakUserService.UpdateAsync(Keycloak.AdminSdk.Common.KeycloakResourceId userId, Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest! request, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.Task<Keycloak.AdminSdk.Features.Users.Models.UserResource!>!
+Keycloak.AdminSdk.Common.KeycloakResourceId
+Keycloak.AdminSdk.Common.KeycloakResourceId.KeycloakResourceId() -> void
+Keycloak.AdminSdk.Common.KeycloakResourceId.KeycloakResourceId(string! value) -> void
+Keycloak.AdminSdk.Common.KeycloakResourceId.Value.get -> string!
+Keycloak.AdminSdk.Common.RealmName
+Keycloak.AdminSdk.Common.RealmName.RealmName() -> void
+Keycloak.AdminSdk.Common.RealmName.RealmName(string! value) -> void
+Keycloak.AdminSdk.Common.RealmName.Value.get -> string!
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.ClientCredentialsOptions() -> void
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.ClientId.get -> string!
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.ClientId.set -> void
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.ClientSecret.get -> string!
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.ClientSecret.set -> void
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.Scopes.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Configuration.ClientCredentialsOptions.Scopes.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.Authentication.get -> Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions!
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.Authentication.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.AuthenticationRealm.get -> string!
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.AuthenticationRealm.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.DefaultRealm.get -> string?
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.DefaultRealm.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.KeycloakAdminOptions() -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.Observability.get -> Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions!
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.Observability.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.Resilience.get -> Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions!
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.Resilience.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.ServerUrl.get -> System.Uri?
+Keycloak.AdminSdk.Configuration.KeycloakAdminOptions.ServerUrl.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationFlow
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationFlow.ClientCredentials = 0 -> Keycloak.AdminSdk.Configuration.KeycloakAuthenticationFlow
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationFlow.Password = 1 -> Keycloak.AdminSdk.Configuration.KeycloakAuthenticationFlow
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.ClientCredentials.get -> Keycloak.AdminSdk.Configuration.ClientCredentialsOptions!
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.ClientCredentials.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.Flow.get -> Keycloak.AdminSdk.Configuration.KeycloakAuthenticationFlow
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.Flow.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.KeycloakAuthenticationOptions() -> void
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.Password.get -> Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions!
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.Password.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.TokenRefreshSkew.get -> System.TimeSpan
+Keycloak.AdminSdk.Configuration.KeycloakAuthenticationOptions.TokenRefreshSkew.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.EmitDiagnosticHints.get -> bool
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.EmitDiagnosticHints.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.Enabled.get -> bool
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.Enabled.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.IncludeRequestPath.get -> bool
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.IncludeRequestPath.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.KeycloakObservabilityOptions() -> void
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.LogSuccessfulRequests.get -> bool
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.LogSuccessfulRequests.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.PublishDiagnosticEvents.get -> bool
+Keycloak.AdminSdk.Configuration.KeycloakObservabilityOptions.PublishDiagnosticEvents.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.AttemptTimeout.get -> System.TimeSpan
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.AttemptTimeout.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.KeycloakResilienceOptions() -> void
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.MaxRetryAttempts.get -> int
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.MaxRetryAttempts.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.RetryBaseDelay.get -> System.TimeSpan
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.RetryBaseDelay.set -> void
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.TotalRequestTimeout.get -> System.TimeSpan
+Keycloak.AdminSdk.Configuration.KeycloakResilienceOptions.TotalRequestTimeout.set -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.AllowPasswordGrant.get -> bool
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.AllowPasswordGrant.set -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.ClientId.get -> string!
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.ClientId.set -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.ClientSecret.get -> string?
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.ClientSecret.set -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.Password.get -> string!
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.Password.set -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.PasswordCredentialsOptions() -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.Scopes.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.Scopes.set -> void
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.Username.get -> string!
+Keycloak.AdminSdk.Configuration.PasswordCredentialsOptions.Username.set -> void
+Keycloak.AdminSdk.Exceptions.KeycloakApiException
+Keycloak.AdminSdk.Exceptions.KeycloakApiException.KeycloakApiException(string! message, System.Net.HttpStatusCode? statusCode = null, System.Exception? innerException = null) -> void
+Keycloak.AdminSdk.Exceptions.KeycloakApiException.StatusCode.get -> System.Net.HttpStatusCode?
+Keycloak.AdminSdk.Exceptions.KeycloakAuthenticationException
+Keycloak.AdminSdk.Exceptions.KeycloakAuthenticationException.KeycloakAuthenticationException(string! message, System.Net.HttpStatusCode? statusCode = null) -> void
+Keycloak.AdminSdk.Exceptions.KeycloakAuthenticationException.StatusCode.get -> System.Net.HttpStatusCode?
+Keycloak.AdminSdk.Exceptions.KeycloakAuthorizationException
+Keycloak.AdminSdk.Exceptions.KeycloakAuthorizationException.KeycloakAuthorizationException(string! message, System.Net.HttpStatusCode statusCode) -> void
+Keycloak.AdminSdk.Exceptions.KeycloakConflictException
+Keycloak.AdminSdk.Exceptions.KeycloakConflictException.KeycloakConflictException(string! message) -> void
+Keycloak.AdminSdk.Exceptions.KeycloakNotFoundException
+Keycloak.AdminSdk.Exceptions.KeycloakNotFoundException.KeycloakNotFoundException(string! message) -> void
+Keycloak.AdminSdk.Exceptions.KeycloakProvisioningException
+Keycloak.AdminSdk.Exceptions.KeycloakProvisioningException.KeycloakProvisioningException(string! message, System.Exception! innerException) -> void
+Keycloak.AdminSdk.Exceptions.KeycloakValidationException
+Keycloak.AdminSdk.Exceptions.KeycloakValidationException.KeycloakValidationException(string! message) -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.ClientId.get -> string!
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.ClientId.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Description.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Description.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.DirectAccessGrantsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.DirectAccessGrantsEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Enabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Enabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Id.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Name.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Name.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Protocol.get -> string!
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.Protocol.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.PublicClient.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.PublicClient.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.RedirectUris.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.RedirectUris.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.ServiceAccountsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.ServiceAccountsEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.StandardFlowEnabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.StandardFlowEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.WebOrigins.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Clients.Models.ClientResource.WebOrigins.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.ClientId.get -> string!
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.ClientId.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.CreateClientRequest(string! ClientId) -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Description.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Description.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.DirectAccessGrantsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.DirectAccessGrantsEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Enabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Name.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Protocol.get -> string!
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Protocol.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.PublicClient.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.PublicClient.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.RedirectUris.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.RedirectUris.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Secret.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.Secret.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.ServiceAccountsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.ServiceAccountsEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.StandardFlowEnabled.get -> bool
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.StandardFlowEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.WebOrigins.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Clients.Models.CreateClientRequest.WebOrigins.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.ClientId.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.ClientId.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.Description.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.Description.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.DirectAccessGrantsEnabled.get -> bool?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.DirectAccessGrantsEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.Enabled.get -> bool?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.Name.get -> string?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.PublicClient.get -> bool?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.PublicClient.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.RedirectUris.get -> System.Collections.Generic.IReadOnlyCollection<string!>?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.RedirectUris.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.ServiceAccountsEnabled.get -> bool?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.ServiceAccountsEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.StandardFlowEnabled.get -> bool?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.StandardFlowEnabled.init -> void
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.WebOrigins.get -> System.Collections.Generic.IReadOnlyCollection<string!>?
+Keycloak.AdminSdk.Features.Clients.Models.UpdateClientRequest.WebOrigins.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Attributes.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Attributes.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Description.get -> string?
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Description.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Id.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Name.get -> string!
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Name.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Protocol.get -> string!
+Keycloak.AdminSdk.Features.ClientScopes.Models.ClientScopeResource.Protocol.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Attributes.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Attributes.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.CreateClientScopeRequest(string! Name) -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Description.get -> string?
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Description.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Name.get -> string!
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Name.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Protocol.get -> string!
+Keycloak.AdminSdk.Features.ClientScopes.Models.CreateClientScopeRequest.Protocol.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Attributes.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>?
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Attributes.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Description.get -> string?
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Description.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Name.get -> string?
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Name.init -> void
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Protocol.get -> string?
+Keycloak.AdminSdk.Features.ClientScopes.Models.UpdateClientScopeRequest.Protocol.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.AuthClient.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.AuthClient.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.AuthUser.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.AuthUser.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.First.get -> int
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.First.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.Max.get -> int
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.Max.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.OperationTypes.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.OperationTypes.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.ResourcePath.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.ResourcePath.init -> void
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.ResourceTypes.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Events.Models.AdminEventQuery.ResourceTypes.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.ClientId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.ClientId.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.DateFromUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.DateFromUtc.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.DateToUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.DateToUtc.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.First.get -> int
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.First.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.Max.get -> int
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.Max.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.Types.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.Types.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.UserId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.EventQuery.UserId.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.AdminEventsDetailsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.AdminEventsDetailsEnabled.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.AdminEventsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.AdminEventsEnabled.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EnabledEventTypes.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EnabledEventTypes.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EventListeners.get -> System.Collections.Generic.IReadOnlyCollection<string!>!
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EventListeners.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EventsEnabled.get -> bool
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EventsEnabled.init -> void
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EventsExpirationSeconds.get -> long
+Keycloak.AdminSdk.Features.Events.Models.EventsConfiguration.EventsExpirationSeconds.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.Error.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.Error.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.OperationType.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.OperationType.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.RealmId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.RealmId.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.ResourcePath.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.ResourcePath.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.ResourceType.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.ResourceType.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.TimestampUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakAdminEventResource.TimestampUtc.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.ClientId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.ClientId.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.Details.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.Details.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.Error.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.Error.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.IpAddress.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.IpAddress.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.RealmId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.RealmId.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.SessionId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.SessionId.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.TimestampUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.TimestampUtc.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.Type.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.Type.init -> void
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.UserId.get -> string?
+Keycloak.AdminSdk.Features.Events.Models.KeycloakEventResource.UserId.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.CreateGroupRequest
+Keycloak.AdminSdk.Features.Groups.Models.CreateGroupRequest.CreateGroupRequest(string! Name) -> void
+Keycloak.AdminSdk.Features.Groups.Models.CreateGroupRequest.Name.get -> string!
+Keycloak.AdminSdk.Features.Groups.Models.CreateGroupRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.Id.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.Name.get -> string!
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.Name.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.Path.get -> string?
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.Path.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.SubGroups.get -> System.Collections.Generic.IReadOnlyCollection<Keycloak.AdminSdk.Features.Groups.Models.GroupResource!>!
+Keycloak.AdminSdk.Features.Groups.Models.GroupResource.SubGroups.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.UpdateGroupRequest
+Keycloak.AdminSdk.Features.Groups.Models.UpdateGroupRequest.Name.get -> string!
+Keycloak.AdminSdk.Features.Groups.Models.UpdateGroupRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Groups.Models.UpdateGroupRequest.UpdateGroupRequest(string! Name) -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.Alias.get -> string!
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.Alias.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.Config.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.Config.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.CreateIdentityProviderRequest(string! Alias, string! ProviderId) -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.DisplayName.get -> string?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.DisplayName.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.Enabled.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.LinkOnly.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.LinkOnly.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.ProviderId.get -> string!
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.ProviderId.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.StoreToken.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.StoreToken.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.TrustEmail.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.CreateIdentityProviderRequest.TrustEmail.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.Alias.get -> string!
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.Alias.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.Config.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.Config.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.DisplayName.get -> string?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.DisplayName.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.Enabled.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.Enabled.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.LinkOnly.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.LinkOnly.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.ProviderId.get -> string!
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.ProviderId.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.StoreToken.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.StoreToken.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.TrustEmail.get -> bool
+Keycloak.AdminSdk.Features.IdentityProviders.Models.IdentityProviderResource.TrustEmail.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.Config.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.Config.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.DisplayName.get -> string?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.DisplayName.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.Enabled.get -> bool?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.LinkOnly.get -> bool?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.LinkOnly.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.StoreToken.get -> bool?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.StoreToken.init -> void
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.TrustEmail.get -> bool?
+Keycloak.AdminSdk.Features.IdentityProviders.Models.UpdateIdentityProviderRequest.TrustEmail.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.Config.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.Config.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.ConsentRequired.get -> bool
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.ConsentRequired.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.ConsentText.get -> string?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.ConsentText.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.CreateProtocolMapperRequest(string! Name, string! ProtocolMapper) -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.Name.get -> string!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.Name.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.Protocol.get -> string!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.Protocol.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.ProtocolMapper.get -> string!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.CreateProtocolMapperRequest.ProtocolMapper.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Config.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Config.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.ConsentRequired.get -> bool
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.ConsentRequired.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.ConsentText.get -> string?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.ConsentText.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Id.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Name.get -> string!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Name.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Protocol.get -> string!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.Protocol.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.ProtocolMapper.get -> string!
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.ProtocolMapperResource.ProtocolMapper.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.Config.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.Config.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.ConsentRequired.get -> bool?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.ConsentRequired.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.ConsentText.get -> string?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.ConsentText.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.Name.get -> string?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.Name.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.Protocol.get -> string?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.Protocol.init -> void
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.ProtocolMapper.get -> string?
+Keycloak.AdminSdk.Features.ProtocolMappers.Models.UpdateProtocolMapperRequest.ProtocolMapper.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.BruteForceProtected.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.BruteForceProtected.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.CreateRealmRequest(Keycloak.AdminSdk.Common.RealmName Name) -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.DisplayName.get -> string?
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.DisplayName.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.DuplicateEmailsAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.DuplicateEmailsAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.EditUsernameAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.EditUsernameAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.Enabled.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.LoginWithEmailAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.LoginWithEmailAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.Name.get -> Keycloak.AdminSdk.Common.RealmName
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.RegistrationAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.RegistrationAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.RegistrationEmailAsUsername.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.RegistrationEmailAsUsername.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.RememberMe.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.RememberMe.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.ResetPasswordAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.ResetPasswordAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.SslRequired.get -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.SslRequired.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.VerifyEmail.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.CreateRealmRequest.VerifyEmail.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.BruteForceProtected.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.BruteForceProtected.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.DisplayName.get -> string?
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.DisplayName.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.DisplayNameHtml.get -> string?
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.DisplayNameHtml.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.DuplicateEmailsAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.DuplicateEmailsAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.EditUsernameAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.EditUsernameAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.Enabled.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.Enabled.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId?
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.Id.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.LoginWithEmailAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.LoginWithEmailAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.Name.get -> Keycloak.AdminSdk.Common.RealmName
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.Name.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.RegistrationAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.RegistrationAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.RegistrationEmailAsUsername.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.RegistrationEmailAsUsername.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.RememberMe.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.RememberMe.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.ResetPasswordAllowed.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.ResetPasswordAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.SslRequired.get -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.SslRequired.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.VerifyEmail.get -> bool
+Keycloak.AdminSdk.Features.Realms.Models.RealmResource.VerifyEmail.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.SslRequirement.All = 3 -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.SslRequirement.External = 2 -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.SslRequirement.None = 1 -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.SslRequirement.Unknown = 0 -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.BruteForceProtected.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.BruteForceProtected.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.DisplayName.get -> string?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.DisplayName.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.DuplicateEmailsAllowed.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.DuplicateEmailsAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.EditUsernameAllowed.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.EditUsernameAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.Enabled.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.LoginWithEmailAllowed.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.LoginWithEmailAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.RegistrationAllowed.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.RegistrationAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.RegistrationEmailAsUsername.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.RegistrationEmailAsUsername.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.RememberMe.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.RememberMe.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.ResetPasswordAllowed.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.ResetPasswordAllowed.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.SslRequired.get -> Keycloak.AdminSdk.Features.Realms.Models.SslRequirement?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.SslRequired.init -> void
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.VerifyEmail.get -> bool?
+Keycloak.AdminSdk.Features.Realms.Models.UpdateRealmRequest.VerifyEmail.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest
+Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest.CreateRoleRequest(string! Name) -> void
+Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest.Description.get -> string?
+Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest.Description.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest.Name.get -> string!
+Keycloak.AdminSdk.Features.Roles.Models.CreateRoleRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.ClientRole.get -> bool
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.ClientRole.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Composite.get -> bool
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Composite.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.ContainerId.get -> string?
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.ContainerId.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Description.get -> string?
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Description.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId?
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Id.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Name.get -> string!
+Keycloak.AdminSdk.Features.Roles.Models.RoleResource.Name.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest
+Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest.Description.get -> string?
+Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest.Description.init -> void
+Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest.Name.get -> string?
+Keycloak.AdminSdk.Features.Roles.Models.UpdateRoleRequest.Name.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.Clients.get -> System.Collections.Generic.IReadOnlyDictionary<string!, string!>!
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.Clients.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.Id.get -> string!
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.Id.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.IpAddress.get -> string?
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.IpAddress.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.LastAccessUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.LastAccessUtc.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.StartedAtUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.StartedAtUtc.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.UserId.get -> Keycloak.AdminSdk.Common.KeycloakResourceId?
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.UserId.init -> void
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.Username.get -> string?
+Keycloak.AdminSdk.Features.Sessions.Models.UserSessionResource.Username.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Attributes.get -> System.Collections.Generic.IReadOnlyDictionary<string!, System.Collections.Generic.IReadOnlyCollection<string!>!>!
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Attributes.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.CreateUserRequest(string! Username) -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Email.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Email.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.EmailVerified.get -> bool
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.EmailVerified.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Enabled.get -> bool
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.FirstName.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.FirstName.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.LastName.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.LastName.init -> void
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Username.get -> string!
+Keycloak.AdminSdk.Features.Users.Models.CreateUserRequest.Username.init -> void
+Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest
+Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest.Password.get -> string!
+Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest.Password.init -> void
+Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest.SetPasswordRequest(string! Password) -> void
+Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest.Temporary.get -> bool
+Keycloak.AdminSdk.Features.Users.Models.SetPasswordRequest.Temporary.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Attributes.get -> System.Collections.Generic.IReadOnlyDictionary<string!, System.Collections.Generic.IReadOnlyCollection<string!>!>?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Attributes.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Email.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Email.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.EmailVerified.get -> bool?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.EmailVerified.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Enabled.get -> bool?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Enabled.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.FirstName.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.FirstName.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.LastName.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.LastName.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Username.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UpdateUserRequest.Username.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserQuery
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Email.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Email.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Exact.get -> bool
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Exact.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.First.get -> int?
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.First.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Max.get -> int?
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Max.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Search.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Search.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Username.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UserQuery.Username.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Attributes.get -> System.Collections.Generic.IReadOnlyDictionary<string!, System.Collections.Generic.IReadOnlyCollection<string!>!>!
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Attributes.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Email.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Email.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.EmailVerified.get -> bool
+Keycloak.AdminSdk.Features.Users.Models.UserResource.EmailVerified.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Enabled.get -> bool
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Enabled.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.FirstName.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UserResource.FirstName.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Id.get -> Keycloak.AdminSdk.Common.KeycloakResourceId
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Id.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.LastName.get -> string?
+Keycloak.AdminSdk.Features.Users.Models.UserResource.LastName.init -> void
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Username.get -> string!
+Keycloak.AdminSdk.Features.Users.Models.UserResource.Username.init -> void
+Keycloak.AdminSdk.Observability.IKeycloakDiagnosticSink
+Keycloak.AdminSdk.Observability.IKeycloakDiagnosticSink.PublishAsync(Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent! diagnosticEvent, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken)) -> System.Threading.Tasks.ValueTask
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.Category.get -> string!
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.Category.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.CauseHint.get -> string!
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.CauseHint.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.ExceptionType.get -> string?
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.ExceptionType.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.HttpMethod.get -> string!
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.HttpMethod.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.HttpStatusCode.get -> int?
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.HttpStatusCode.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.RemediationHint.get -> string!
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.RemediationHint.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.RequestPath.get -> string?
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.RequestPath.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.TimestampUtc.get -> System.DateTimeOffset
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.TimestampUtc.init -> void
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.TraceId.get -> string?
+Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent.TraceId.init -> void
+Keycloak.AdminSdk.Observability.KeycloakTelemetry
+Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions
+override Keycloak.AdminSdk.Common.KeycloakResourceId.ToString() -> string!
+override Keycloak.AdminSdk.Common.RealmName.ToString() -> string!
+static Keycloak.AdminSdk.Common.RealmName.implicit operator Keycloak.AdminSdk.Common.RealmName(string! value) -> Keycloak.AdminSdk.Common.RealmName
+static Keycloak.AdminSdk.Common.RealmName.implicit operator string!(Keycloak.AdminSdk.Common.RealmName realm) -> string!
+static Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeycloakAdmin(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, Microsoft.Extensions.Configuration.IConfigurationSection! configurationSection) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!
+static Microsoft.Extensions.DependencyInjection.ServiceCollectionExtensions.AddKeycloakAdmin(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Keycloak.AdminSdk.Configuration.KeycloakAdminOptions!>! configure) -> Microsoft.Extensions.DependencyInjection.IServiceCollection!

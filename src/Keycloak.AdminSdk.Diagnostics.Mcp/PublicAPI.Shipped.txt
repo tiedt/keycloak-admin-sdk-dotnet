@@ -1,0 +1,27 @@
+#nullable enable
+Keycloak.AdminSdk.Diagnostics.Mcp.IKeycloakDiagnosticReader
+Keycloak.AdminSdk.Diagnostics.Mcp.IKeycloakDiagnosticReader.GetRecent(int limit, int? statusCode = null, string? traceId = null) -> System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent!>!
+Keycloak.AdminSdk.Diagnostics.Mcp.IKeycloakDiagnosticReader.GetSummary() -> Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary!
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.EventsByCause.get -> System.Collections.Generic.IReadOnlyDictionary<string!, int>!
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.EventsByCause.init -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.EventsByStatusCode.get -> System.Collections.Generic.IReadOnlyDictionary<int, int>!
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.EventsByStatusCode.init -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.NewestEventUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.NewestEventUtc.init -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.OldestEventUtc.get -> System.DateTimeOffset?
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.OldestEventUtc.init -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.TotalEvents.get -> int
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary.TotalEvents.init -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticTools
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticTools.KeycloakDiagnosticTools(Keycloak.AdminSdk.Diagnostics.Mcp.IKeycloakDiagnosticReader! reader) -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticTools.GetRecent(int limit = 20, int? statusCode = null, string? traceId = null) -> System.Collections.Generic.IReadOnlyList<Keycloak.AdminSdk.Observability.KeycloakDiagnosticEvent!>!
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticTools.GetSummary() -> Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakDiagnosticSummary!
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions.Capacity.get -> int
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions.Capacity.set -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions.KeycloakMcpDiagnosticsOptions() -> void
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions.MaximumQuerySize.get -> int
+Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions.MaximumQuerySize.set -> void
+Microsoft.Extensions.DependencyInjection.KeycloakMcpServiceCollectionExtensions
+static Microsoft.Extensions.DependencyInjection.KeycloakMcpServiceCollectionExtensions.AddKeycloakAdminDiagnosticsMcp(this Microsoft.Extensions.DependencyInjection.IServiceCollection! services, System.Action<Keycloak.AdminSdk.Diagnostics.Mcp.KeycloakMcpDiagnosticsOptions!>? configure = null) -> Microsoft.Extensions.DependencyInjection.IMcpServerBuilder!

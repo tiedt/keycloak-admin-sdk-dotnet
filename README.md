@@ -1,6 +1,6 @@
 # Keycloak.AdminSdk
 
-[![CI](https://github.com/tiedt/-keycloak-admin-sdk-dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/tiedt/-keycloak-admin-sdk-dotnet/actions/workflows/ci.yml)
+[![CI](https://github.com/tiedt/keycloak-admin-sdk-dotnet/actions/workflows/ci.yml/badge.svg)](https://github.com/tiedt/keycloak-admin-sdk-dotnet/actions/workflows/ci.yml)
 [![NuGet](https://img.shields.io/nuget/vpre/Keycloak.AdminSdk.svg)](https://www.nuget.org/packages/Keycloak.AdminSdk)
 
 SDK .NET 10 fortemente tipado para integração e administração do Keycloak pela Admin REST API.

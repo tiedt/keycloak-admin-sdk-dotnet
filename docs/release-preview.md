@@ -3,7 +3,8 @@
 ## Pré-requisitos
 
 - Repositório hospedado no GitHub.
-- Secret `NUGET_API_KEY` configurado no ambiente do repositório.
+- Trusted Publishing configurado no NuGet para o owner `tiedt`, repositório `keycloak-admin-sdk-dotnet`, workflow `release.yml` e environment `nuget-production`.
+- Environment `nuget-production` criado no GitHub.
 - `OWNER` e URLs do projeto ajustados nos metadados e no changelog.
 - CI e matriz de compatibilidade verdes.
 
@@ -18,7 +19,7 @@ git tag v0.1.0-preview.1
 git push origin v0.1.0-preview.1
 ```
 
-O workflow de release recompila, testa, gera os dois pacotes, cria SBOM CycloneDX, publica no NuGet.org e cria uma GitHub prerelease.
+O workflow solicita uma credencial temporária ao NuGet via OIDC, recompila, testa, gera os dois pacotes, cria SBOM CycloneDX, publica no NuGet.org e cria uma GitHub prerelease. Nenhuma API Key permanente é armazenada no GitHub.
 
 ## Critérios para sair de preview
 

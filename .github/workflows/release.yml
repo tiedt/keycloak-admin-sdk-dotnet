@@ -6,10 +6,12 @@ on:
 
 permissions:
   contents: write
+  id-token: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    environment: nuget-production
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-dotnet@v4
@@ -30,8 +32,13 @@ jobs:
         run: |
           dotnet tool install --global CycloneDX
           dotnet-CycloneDX Keycloak.AdminSdk.sln --output artifacts/sbom
+      - name: Authenticate to NuGet with OIDC
+        id: nuget-login
+        uses: NuGet/login@v1
+        with:
+          user: tiedt
       - name: Publish NuGet
-        run: dotnet nuget push artifacts/*.nupkg --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
+        run: dotnet nuget push artifacts/*.nupkg --api-key "${{ steps.nuget-login.outputs.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate
       - uses: softprops/action-gh-release@v2
         with:
           prerelease: true

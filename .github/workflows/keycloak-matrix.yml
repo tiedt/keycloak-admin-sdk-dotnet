@@ -20,7 +20,7 @@ jobs:
         keycloak: ['24.0.5', '25.0.6', '26.0.8', '26.6.3']
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-dotnet@v4
+      - uses: actions/setup-dotnet@v6
         with:
           dotnet-version: 10.0.x
       - name: Start Keycloak ${{ matrix.keycloak }}
